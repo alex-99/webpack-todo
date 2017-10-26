@@ -7,7 +7,26 @@ import "./assets/style/style.sass"
 function setup() {
   const appRoot = document.getElementById("app-root");
 
-  
+  let addInput = document.createElement("div");
+  addInput.setAttribute("class", "new-item");
+
+
+  let input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.id = "input";
+
+  let button = document.createElement("button");
+  button.appendChild(document.createTextNode("add item"));
+
+  button.addEventListener("click", () => {
+    appItems.addItem(document.getElementById("input").value);
+    document.getElementById("input").value = ""
+  });
+
+  addInput.appendChild(input)
+  addInput.appendChild(button)
+
+  appRoot.appendChild(addInput);
 
   let incomplete = document.createElement("div");
   incomplete.setAttribute("class", "item-list");

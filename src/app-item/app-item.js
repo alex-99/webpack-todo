@@ -3,6 +3,15 @@ import Item from "../assets/item.js";
 
 
 export function addItem(str) {
+  if(data.items[str]) {
+    alert("that item already exists");
+    return;
+  }
+  if(str === "") {
+    alert("please enter a title for the item");
+    return;
+  }
+
   data.items[str] = new Item(str);
 
   data.dom.incomplete.appendChild(item(str))
@@ -11,7 +20,7 @@ export function addItem(str) {
 export function finishItem(str, e) {
 
   if(e.path[0].parentNode.parentNode.id === "complete-items") return;
-  
+
   let date = new Date();
   data.items[str].completed = (date.getHours() + 1) + ":" +
                                date.getMinutes() + ", " +
@@ -19,8 +28,9 @@ export function finishItem(str, e) {
                                (date.getMonth() + 1) + "/" +
                                date.getFullYear();
 
-  e.path[0].parentNode.removeChild(e.path[0].previousSibling)
   data.dom.complete.appendChild(e.path[0].parentNode);
+  e.path[0].parentNode.removeChild(e.path[0])
+
 
 }
 
