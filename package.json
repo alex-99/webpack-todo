@@ -1,0 +1,14 @@
+{
+  "name": "webpack-todo",
+  "version": "0.0.1",
+  "description": "a todo app i made while learning webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "alex",
+  "license": "ISC"
+}
